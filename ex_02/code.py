@@ -13,4 +13,13 @@ for line in hand:
         count = di.get(word, 0) + 1
         di[word] = count
 
-print(di)
+
+maxValue = max(di.values())
+theWord = None
+
+for key in di:
+    if di[key] == maxValue:
+        theWord = key
+
+
+print(theWord, maxValue)
