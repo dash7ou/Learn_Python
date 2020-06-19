@@ -35,10 +35,13 @@ for line in newFile:
         x = newDict.get(word)
         newDict[word] = newDict.get(word, 0) + 1
 
-lst = list()
-for k, v in newDict.items():
-    lst.append((v, k))
+# lst = list()
+# for k, v in newDict.items():
+#     lst.append((v, k))
 
-lst = sorted(lst, reverse=True)
+# lst = sorted(lst, reverse=True)
+
+# we can get shortest version
+lst = sorted([(v, k) for k, v in newDict.items()], reverse=True)
 for v, k in lst:
     print(v, k)
