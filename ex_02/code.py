@@ -1,4 +1,4 @@
-fname = input("Enter Your File...")
+fname = input("Enter Your File: ")
 if len(fname) < 1:
     fname = './clown.txt'
 
