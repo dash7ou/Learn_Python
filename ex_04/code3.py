@@ -2,10 +2,22 @@ import urllib.request
 import urllib.parse
 import urllib.error
 from bs4 import BeautifulSoup
+import ssl
 
-html = urllib.request.urlopen("http://www.dr-chuck.com/page1.html").read()
-soup = BeautifulSoup(html, "html.parser")
+# ignore ssl certificate errors
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
 
-tags = soup("a")
-for tag in tags:
-    print(tag.get('href', None))
+url = input("Enter URL: ")
+try:
+    html = urllib.request.urlopen(
+        url, context=ctx).read()
+    soup = BeautifulSoup(html, "html.parser")
+
+    tags = soup("a")
+    for tag in tags:
+        print(tag.get('href', None))
+
+except:
+    print("error in url")
