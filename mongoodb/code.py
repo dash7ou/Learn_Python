@@ -38,7 +38,15 @@ result3 = collection.find_one({"title": "dash"})
 if result3 is None:
     print("Not found")
 
+
+# Update
+collection.update({"_id": "1"}, {"$set": {"name": "sharaf"}})
+
+# post count
+postCount = collection.count_documents({})
+print(postCount)
+
 # deleted
 collection.delete_one({"_id": "1"})
 
-# collection.delete_many({})
+collection.delete_many({})
