@@ -10,7 +10,7 @@ collection = db["post"]
 
 post = {"name": "tim", "score": 5}
 
-collection.insert_one(post)
+# collection.insert_one(post)
 
 posts = [
     {
@@ -24,4 +24,15 @@ posts = [
 ]
 
 
-collection.insert_many(posts)
+# collection.insert_many(posts)
+
+results = collection.find({"title": "morad"})
+for result in results:
+    print(result)
+
+result2 = collection.find_one({"title": "hanad"})
+print(result2)
+
+result3 = collection.find_one({"title": "dash"})
+if result3 is None:
+    print("Not found")
