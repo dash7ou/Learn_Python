@@ -1,5 +1,5 @@
-import datetime
 import pytz
+import datetime
 
 today = datetime.date.today()
 print(today)
@@ -31,3 +31,16 @@ print(datatime_pacific)
 # all timezones
 for tz in pytz.all_timezones:
     print(tz)
+
+# string formatting with dates
+# 2019-03-09 => March 03, 2019
+# strftime f= formatting
+
+print(datatime_pacific.strftime('%B %d, %Y'))
+
+# March 09, 2019 => datetime(2019,3,9)
+# strptime p = parsing
+
+print(datetime.datetime.strptime("March 09, 2020", '%B %d, %Y'))
+
+# there a good lib to show date to human calling ==> maya
