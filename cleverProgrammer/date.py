@@ -1,24 +1,33 @@
-import calendar
 import datetime
-import time
+import pytz
 
-# 2 => number of character you want to show it :)
-print(calendar.weekheader(2))
-print()
+today = datetime.date.today()
+print(today)
 
-print(calendar.month(2020, 6))
-print()
+birthday = datetime.date(2000, 3, 27)
+print(birthday)
 
-# print list of days every item as list 7 days
-print(calendar.monthcalendar(2020, 6))
-print()
+daysSinceBirth = (today - birthday)
+print(daysSinceBirth)
 
-# print year calender
-print(calendar.calendar(2020))
+tdelta = datetime.timedelta(days=10)
+print(today + tdelta)
 
 
-dayOfTheWeek = calendar.weekday(2020, 6, 20)
-print(dayOfTheWeek)
+print(today.year, today.month, today.weekday())
 
-isLeap = calendar.isleap(2020)
-print(isLeap)
+print(datetime.time(7, 2, 20, 15))
+
+# datetime.date (Y, M, D)
+# datetime.time (h, m, s, ms)
+# datetime.datetime ( Y, M, D, h, m, s, ms)
+
+# timezone we using pytz lib
+datetime_today = datetime.datetime.now(tz=pytz.UTC)
+datatime_pacific = datetime_today.astimezone(pytz.timezone('US/Pacific'))
+print(datetime_today)
+print(datatime_pacific)
+
+# all timezones
+for tz in pytz.all_timezones:
+    print(tz)
