@@ -20,7 +20,6 @@ an = 542
 print(" an contains", an)
 
 # another class
-print("another class")
 
 
 class PrintNames:
@@ -38,3 +37,19 @@ class PrintNames:
 
 morad = PrintNames("morad")
 morad.addCount()
+
+# inhertance
+
+
+class InherantPrintName(PrintNames):
+    points = 0
+
+    def touchdown(self):
+        self.points = self.points + 7
+        self.addCount()
+        print(self.name, "points", self.points)
+
+
+noor = InherantPrintName("noor")
+noor.addCount()
+noor.touchdown()
