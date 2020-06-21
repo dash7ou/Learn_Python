@@ -48,5 +48,4 @@ print(postCount)
 
 # deleted
 collection.delete_one({"_id": "1"})
-
 collection.delete_many({})
