@@ -1,4 +1,4 @@
-import pandas as pb
+import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
@@ -20,3 +20,13 @@ temperatures = [item.find(class_="temp").get_text() for item in items]
 print(period_names)
 print(short_desc)
 print(temperatures)
+
+weatherStuff = pd.DataFrame({
+    'period': period_names,
+    'shortDescription': short_desc,
+    'temperatures': temperatures
+})
+
+print(weatherStuff)
+
+weatherStuff.to_csv('weather.csv')
